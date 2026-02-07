@@ -1,0 +1,21 @@
+#!/bin/bash
+#extract URLS
+cut -f15 $1 >links
+
+# prepare filename Rename
+for i in `cat links` ; 
+ do 
+	    basename $i 
+	     done  >part1.$$
+
+	     cut -f3-4 --output-delimiter='_' $1 >part2.$$
+
+#create rename 
+paste part1.$$ part2.$$ >rename.sh.$$
+# regex /aaa|bbb/   aaa or bbb 
+# \ ( ) / \ needs to be escaped, ! not
+awk '{gsub(/\ |\(|\)|\\|\/|!|:|&/,"_", $0); printf("mv -nv %s.mp4\n",$0)}' rename.sh.$$ >rename.sh
+
+$Cleanup
+rm -f part1.$$ part2.$$ rename.sh.$$
+

@@ -1,0 +1,4 @@
+rename -v 'Kino_-_Filme_' '' *
+rename -v 'ARTE_Concert_-_Pop___Rock_' '' *
+rename -v 'Spielfilme_' '' *
+rename -v 'Filme_in_der_ARD_' '' *
